@@ -17,12 +17,12 @@
     <button>Share a fact</button>
   </head>
   <body>
-    <header>
+    <header class="header">
       <img src="logo.png" height="68" width="68" alt="Today I learned logo" />
       <h1>Today I Learned!!</h1>
     </header>
 
-    <form>
+    <form class="fact-form">
       <input type="text" placeholder="Share a fact..." />
       <span>200</span>
       <input type="text" placeholder="Source" />
@@ -64,14 +64,18 @@
       <section>
         <ul>
           <li>
-            <p>
+            <p class="fact">
               React is being developed by Meta (formerly facebook)
-              <a href="https://opensource.fb.com/" target="_blank">(Source)</a>
-              <span>#technology</span>
+              <a href="https://opensource.fb.com/" target="_blank">
+                (Source)
+              </a>
+              <span class="tag" style="background-color: red">
+                #technology#
+              </span>
             </p>
           </li>
           <li>
-            <p>
+            <p class="fact">
               Millennial dads spend 3 times as much time with their kids than
               their fathers spent with them. In 1982, 43% of fathers had never
               changed a diaper. Today, that number is down to 3%
@@ -81,10 +85,13 @@
               >
                 (Source)
               </a>
-              <span> #society# </span>
+              <span class="tag" style="background-color: yellow">
+                #society#
+              </span>
             </p>
           </li>
         </ul>
+        <p>Built by Adviti Mishra</p>
       </section>
     </main>
   </body>
