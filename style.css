@@ -8,9 +8,14 @@ body {
   background-color: #0a0a0a;
   color: #fff7ed;
   font-family: "Roboto", sans-serif;
-  padding: 48px;
+  padding: 48px 64px;
 }
-/* LAYOUT */
+/* MAIN LAYOUT */
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 .header {
   margin-bottom: 40px;
   display: flex;
