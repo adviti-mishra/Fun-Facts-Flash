@@ -55,6 +55,9 @@ h1 {
   margin: 6px;
 }
 
+.category {
+  margin-bottom: 16px;
+}
 .fact {
   font-size: 20px;
   line-height: 1.4;
@@ -77,6 +80,7 @@ h1 {
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 100px;
 }
 
 ul {
@@ -94,4 +98,44 @@ ul {
 .source:hover,
 .source:active {
   color: blue;
+}
+
+.btn {
+  border: none;
+  font-family: "Kalam", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 16px 0px 13px;
+  background-image: linear-gradient(
+    135deg,
+    #3b82f6,
+    #16a34a,
+    #eab308,
+    #f97316,
+    #ef4444
+  );
+  color: inherit;
+  transition: 0.3s;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
 }

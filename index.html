@@ -27,7 +27,7 @@
           />
           <h1>Today I Learned!!</h1>
         </div>
-        <button class="btn">Share a fact</button>
+        <button class="btn btn-large">Share a fact</button>
       </header>
 
       <form class="fact-form">
@@ -42,29 +42,62 @@
           <option value="business">Business</option>
           <option value="technology">Technology</option>
         </select>
-        <button class="btn">Post</button>
+        <button class="btn btn-large">Post</button>
       </form>
 
       <main class="main">
         <aside>
           <ul>
-            <li>
-              <button class="btn">All</button>
+            <li class="category">
+              <button class="btn btn-all-categories">All</button>
             </li>
-            <li>
-              <button class="btn">Pop culture</button>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #ef4444"
+              >
+                Pop culture
+              </button>
             </li>
-            <li>
-              <button class="btn">History</button>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #f97316"
+              >
+                History
+              </button>
             </li>
-            <li>
-              <button class="btn">Geography</button>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #eab308"
+              >
+                Geography
+              </button>
             </li>
-            <li>
-              <button class="btn">Business</button>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #16a34a"
+              >
+                Business
+              </button>
             </li>
-            <li>
-              <button class="btn">Technology</button>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #3b82f6"
+              >
+                Technology
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #8b5cf6"
+              >
+                Society
+              </button>
             </li>
           </ul>
         </aside>
@@ -82,8 +115,8 @@
                   (Source)
                 </a>
               </p>
-              <span class="tag" style="background-color: red">
-                #technology#
+              <span class="tag" style="background-color: #3b82f6">
+                Technology
               </span>
             </li>
             <li class="fact">
@@ -99,8 +132,8 @@
                   (Source)
                 </a>
               </p>
-              <span class="tag" style="background-color: blue">
-                #society#
+              <span class="tag" style="background-color: #8b5cf6">
+                Society
               </span>
             </li>
           </ul>
