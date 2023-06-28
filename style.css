@@ -58,12 +58,12 @@ h1 {
 .fact {
   font-size: 20px;
   line-height: 1.4;
-  background-color: #f97316;
-  color: #fff7ed;
+  background-color: #57534e;
+  color: #fafaf9;
   margin: 16px;
   padding: 16px 24px;
   letter-spacing: 2px;
-  border: 4px solid #fff7ed;
+  border: 4px solid #fafaf9;
 
   display: flex;
   align-items: center;
@@ -83,10 +83,14 @@ ul {
   list-style: none;
 }
 
-.source {
-  color: red;
+.source:link,
+.source:visited {
+  color: #a8a29e;
+  text-decoration: none;
+  margin-left: 10px;
 }
 
-.source:hover {
+.source:hover,
+.source:active {
   color: blue;
 }
