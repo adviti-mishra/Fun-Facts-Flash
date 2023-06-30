@@ -53,14 +53,11 @@ body {
 h1 {
   font-size: 42px;
   font-family: "Kalam", cursive;
-  color: #fff7ed;
+  color: #57534e;
   line-height: 1;
   margin: 6px;
 }
 
-.category {
-  margin-bottom: 16px;
-}
 .fact {
   font-size: 20px;
   line-height: 1.4;
@@ -81,6 +78,7 @@ h1 {
 @media (max-width: 1200px) {
   .fact {
     flex-direction: column;
+    align-items: flex-end;
     gap: 12px;
   }
 }
@@ -110,6 +108,8 @@ ul {
 .source:active {
   color: blue;
 }
+
+/* CATEGORY BUTTON */
 
 .btn {
   border: none;
@@ -151,6 +151,12 @@ ul {
   background-image: none;
 }
 
+/* FACT FORM */
+
+.category {
+  margin-bottom: 16px;
+}
+
 .fact-form input,
 .fact-form select {
   width: 250px;
@@ -174,4 +180,20 @@ ul {
   font-weight: 600;
   font-size: 16;
   margin-right: 18px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 32px 48px;
+  }
+
+  .fact-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fact-form input,
+  .fact-form select {
+    width: auto;
+  }
 }
