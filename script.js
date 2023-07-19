@@ -51,11 +51,34 @@ const CATEGORIES = [
 ];
 
 // Create DOM elements: Render facts in list
+// object of options that gets sent with the API request
+
 factsList.innerHTML = "";
-createFactsList(initialFacts);
+
+loadFacts();
+
+// Load data from Supabase
+async function loadFacts() {
+  const res = await fetch(
+    "https://pgubzanldnumdvvlsbak.supabase.co/rest/v1/facts",
+    {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBndWJ6YW5sZG51bWR2dmxzYmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODgxNjEzOTAsImV4cCI6MjAwMzczNzM5MH0.o3sAqLy3eTAMXObj3Hc4S8BXoZybDnBQfMtlim2Orpk",
+        // This means we bear a token we can show to the server
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBndWJ6YW5sZG51bWR2dmxzYmFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODgxNjEzOTAsImV4cCI6MjAwMzczNzM5MH0.o3sAqLy3eTAMXObj3Hc4S8BXoZybDnBQfMtlim2Orpk",
+      },
+    }
+  );
+  // await keyword since converting to json takes time. Can only use this keyword if a Promise is returned
+  const data = await res.json();
+  // create DOM elements from backend data
+  createFactsList(data);
+}
 
 function createFactsList(dataArray) {
-  const htmlArr = data.map(
+  const htmlArr = dataArray.map(
     (fact) => `<li class="fact">
     <p>
     ${fact.text}
