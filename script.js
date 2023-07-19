@@ -44,12 +44,11 @@ const CATEGORIES = [
   { name: "science", color: "#16a34a" },
   { name: "finance", color: "#ef4444" },
   { name: "society", color: "#eab308" },
-  { name: "entertainment", color: "#db2777" },
-  { name: "health", color: "#14b8a6" },
+  { name: "popculture", color: "#db2777" },
+  { name: "geography", color: "#14b8a6" },
   { name: "history", color: "#f97316" },
   { name: "news", color: "#8b5cf6" },
 ];
-
 // Create DOM elements: Render facts in list
 // object of options that gets sent with the API request
 
@@ -73,6 +72,8 @@ async function loadFacts() {
   );
   // await keyword since converting to json takes time. Can only use this keyword if a Promise is returned
   const data = await res.json();
+
+  const filteredData = data.filter((fact) => fact.category == "society");
   // create DOM elements from backend data
   createFactsList(data);
 }
@@ -90,7 +91,9 @@ function createFactsList(dataArray) {
       (Source)
     </a>
   </p>
-  <span class="tag" style="background-color: #8b5cf6">
+  <span class="tag" style="background-color: ${
+    CATEGORIES.find((cat) => cat.name === fact.category).color
+  }">
     ${fact.category}
   </span>
   </li>`
@@ -269,4 +272,10 @@ const initialFacts = [
 const factAges = initialFacts.map((elt) => calcFactAge(elt.createdIn));
 // joins the elements of an array into a string with the " & " separator
 console.log(factAges.join(" & "));
+
+
 */
+
+// 48
+console.log([7, 64, 6, -23, 11].filter((el) => el > 10));
+console.log([7, 64, 6, -23, 11].find((el) => el > 10));
