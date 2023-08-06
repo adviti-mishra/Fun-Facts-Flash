@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 
 const CATEGORIES = [
   { name: "technology", color: "#3b82f6" },
@@ -45,14 +45,13 @@ const initialFacts = [
   },
 ];
 
-function App(){
-
+function App() {
   const appTitle = "Fact Flash";
 
-  return(
+  return (
     <>
-    {/* HEADER */}
-    <header className="header">
+      {/* HEADER */}
+      <header className="header">
         <div className="logo">
           <img
             src="logo.png"
@@ -66,53 +65,55 @@ function App(){
       </header>
 
       <NewFactForm />
-      <main className='main'>
-      
-      <CategoryFilter />
-      <FactsList />
+      <main className="main">
+        <CategoryFilter />
+        <FactsList />
       </main>
-      
-        </>
+    </>
   );
-
 }
 
-function NewFactForm(){
-  return <form className="fact-form">
-    Fact Form
-  </form>
+function NewFactForm() {
+  return <form className="fact-form">Fact Form</form>;
 }
 
-function CategoryFilter(){
-  return <aside> Category filters </aside>
+function CategoryFilter() {
+  return <aside> Category filters </aside>;
 }
 
-function FactsList(){
+function FactsList() {
   // TEMPORARY VARIABLE
   const facts = initialFacts;
-  return <section>
-    <ul className="facts-list">
-      {
-        facts.map((fact)=><li key={fact.id} className="fact">
-        <p>
-         {fact.text}
-          <a
-            className="source"
-            href={fact.source}
-            target="_blank"
-          >
-            (Source)
-          </a>
-        </p>
-        <span className="tag" style={{backgroundColor:
-    CATEGORIES.find((cat) => cat.name === fact.category).color
-  }}>
-          {fact.category}
-        </span>
-      </li>)
-      }
-    </ul>
+  return (
+    <section>
+      <ul className="facts-list">
+        {facts.map((fact) => (
+          <Fact key={fact.id} fact={fact} />
+        ))}
+      </ul>
     </section>
+  );
 }
 
+function Fact({ fact }) {
+  return (
+    <li className="fact">
+      <p>
+        {fact.text}
+        <a className="source" href={fact.source} target="_blank">
+          (Source)
+        </a>
+      </p>
+      <span
+        className="tag"
+        style={{
+          backgroundColor: CATEGORIES.find((cat) => cat.name === fact.category)
+            .color,
+        }}
+      >
+        {fact.category}
+      </span>
+    </li>
+  );
+}
 export default App;
