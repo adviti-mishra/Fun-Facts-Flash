@@ -78,7 +78,20 @@ function NewFactForm() {
 }
 
 function CategoryFilter() {
-  return <aside> Category filters </aside>;
+  return (
+    <aside>
+      <ul>
+        <li className="category">
+          <button
+            className="btn btn-category"
+            style={{ backgroundColor: "#ef4444" }}
+          >
+            Pop culture
+          </button>
+        </li>
+      </ul>
+    </aside>
+  );
 }
 
 function FactsList() {
