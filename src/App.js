@@ -68,9 +68,6 @@ function Header({ showForm, setShowForm }) {
     </header>
   );
 }
-function NewFactForm() {
-  return <form className="fact-form">Fact Form</form>;
-}
 
 const CATEGORIES = [
   { name: "technology", color: "#3b82f6" },
@@ -82,6 +79,25 @@ const CATEGORIES = [
   { name: "history", color: "#f97316" },
   { name: "news", color: "#8b5cf6" },
 ];
+
+function NewFactForm() {
+  return (
+    <form className="fact-form">
+      <input type="text" placeholder="Share a fact..." />
+      <span>200</span>
+      <input type="text" placeholder="Source" />
+      <select>
+        <option value="">Choose Category</option>
+        {CATEGORIES.map((cat) => (
+          <option id={cat.name} value={cat.name}>
+            {cat.name.toUpperCase}
+          </option>
+        ))}
+      </select>
+      <button className="btn btn-large">Post</button>
+    </form>
+  );
+}
 
 function CategoryFilter() {
   return (
