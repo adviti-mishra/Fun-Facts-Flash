@@ -81,12 +81,39 @@ const CATEGORIES = [
 ];
 
 function NewFactForm() {
+  const [text, setText] = useState("");
+  const [source, setSource] = useState("");
+  const [category, setCategory] = useState("");
+
+  function handleSubmit(e) {
+    /* Prevent the page from reloading whenever we submit a form */
+    e.preventDefault();
+    console.log(text, source, category);
+  }
+
+  const textLength = text.length;
+
   return (
-    <form className="fact-form">
-      <input type="text" placeholder="Share a fact..." />
-      <span>200</span>
-      <input type="text" placeholder="Source" />
-      <select>
+    <form className="fact-form" onSubmit={handleSubmit}>
+      {/* CONTROLLED COMPONENT 
+        (react has full control of the input field)
+        e - element object
+        e.target : current element 
+        */}
+      <input
+        type="text"
+        placeholder="Share a fact..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <span>{200 - textLength}</span>
+      <input
+        value={source}
+        type="text"
+        placeholder="Source"
+        onChange={(e) => setSource(e.target.value)}
+      />
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="">Choose Category</option>
         {CATEGORIES.map((cat) => (
           <option id={cat.name} value={cat.name}>
