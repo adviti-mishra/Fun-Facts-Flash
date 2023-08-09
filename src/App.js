@@ -37,15 +37,18 @@ const initialFacts = [
 
 function App() {
   const [showForm, setShowForm] = useState(false);
+  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <>
       <Header showForm={showForm} setShowForm={setShowForm} />
-      {showForm ? <NewFactForm /> : null}
+      {showForm ? (
+        <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
+      ) : null}
 
       <main className="main">
         <CategoryFilter />
-        <FactsList />
+        <FactsList facts={facts} />
       </main>
     </>
   );
@@ -80,15 +83,37 @@ const CATEGORIES = [
   { name: "news", color: "#8b5cf6" },
 ];
 
-function NewFactForm() {
+function NewFactForm({ setFacts, setShowForm }) {
   const [text, setText] = useState("");
   const [source, setSource] = useState("");
   const [category, setCategory] = useState("");
 
   function handleSubmit(e) {
-    /* Prevent the page from reloading whenever we submit a form */
+    // Prevent the page from reloading whenever we submit a form
     e.preventDefault();
-    console.log(text, source, category);
+    // Check if data is valid
+    if (text && source && category && text.length <= 200) {
+      // Creare a new fact object
+      const newFact = {
+        id: Math.round(Math.random() * 100000000),
+        text,
+        source,
+        category,
+        createdIn: 2021,
+      };
+
+      // Add the fact to state
+      setFacts((facts) => [newFact, ...facts]);
+
+      // Reset input fields
+      setText("");
+      setSource("");
+      setCategory("");
+
+      // Close the form automatically
+
+      setShowForm(false);
+    }
   }
 
   const textLength = text.length;
@@ -117,7 +142,7 @@ function NewFactForm() {
         <option value="">Choose Category</option>
         {CATEGORIES.map((cat) => (
           <option id={cat.name} value={cat.name}>
-            {cat.name.toUpperCase}
+            {cat.name.toUpperCase()}
           </option>
         ))}
       </select>
@@ -148,9 +173,10 @@ function CategoryFilter() {
   );
 }
 
-function FactsList() {
+function FactsList({ facts }) {
   // TEMPORARY VARIABLE
-  const facts = initialFacts;
+
+  //const facts = initialFacts;
   return (
     <section>
       <ul className="facts-list">
