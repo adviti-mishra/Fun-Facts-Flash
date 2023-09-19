@@ -1,8 +1,4 @@
-# TODO LIST
-
-Facts API 10 facts daily
-show as a slide show on main page
-option to "favorite" facts
+# A way to store and categorize fun facts you come across
 
 Your favorited facts have been added here ->
 Also, can add your own fun facts too!
