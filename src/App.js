@@ -1,5 +1,6 @@
-import "./style.css";
 import { useState } from "react";
+import supabase from "./supabase";
+import "./style.css";
 
 const initialFacts = [
   {
@@ -55,7 +56,7 @@ function App() {
 }
 
 function Header({ showForm, setShowForm }) {
-  const appTitle = "Fact Flash";
+  const appTitle = "Fun Facts Flash";
   return (
     <header className="header">
       <div className="logo">
@@ -153,7 +154,7 @@ function NewFactForm({ setFacts, setShowForm }) {
 
 function CategoryFilter() {
   return (
-    <aside>
+    <aside className="category-list">
       <ul>
         <li className="category">
           <button className="btn btn-all-categories">All</button>
