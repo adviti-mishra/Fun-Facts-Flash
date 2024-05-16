@@ -5,14 +5,28 @@
 }
 
 body {
-  background-color: white;
-  color: #fff7ed;
-  font-family: "Roboto", sans-serif;
-  padding: 48px 64px;
+  background-color: #fafaf9;
+  color: #292524;
+  font-family: 'Sono', sans-serif;
+  padding: 48px 64px 0px;
 }
 
 .hidden {
   display: none !important;
+}
+
+.message {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 10px;
 }
 
 /* MAIN LAYOUT */
@@ -28,25 +42,25 @@ body {
   justify-content: space-between;
 }
 
-.fact-form {
-  background-color: #57534e;
-  margin-bottom: 40px;
-  padding: 16px 48px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border-radius: 16px;
-}
-
 .main {
   display: grid;
   grid-template-columns: 250px 1fr;
+  gap: 48px;
+
+  height: calc(100vh - 48px - 68px - 40px);
 }
 
 @media (max-width: 900px) {
   .main {
     grid-template-columns: 1fr;
+    /* Fixed in a video text overlay, to fix scrolling issue on small screens */
+    height: auto;
   }
+}
+
+section {
+  overflow: scroll;
+  padding-bottom: 40px;
 }
 
 /* ELEMENTS */
@@ -64,25 +78,27 @@ body {
 
 h1 {
   font-size: 42px;
-  color: #57534e;
+  text-transform: uppercase;
+  font-family: 'Coiny', sans-serif;
   line-height: 1;
-  margin: 6px;
+  margin-top: 6px;
+}
+
+.category {
+  margin-bottom: 16px;
 }
 
 .fact {
   font-size: 20px;
   line-height: 1.4;
-  background-color: #57534e;
+  background-color: #44403c;
   color: #fafaf9;
-  margin: 16px;
+  margin-bottom: 16px;
   padding: 16px 24px;
-
-  letter-spacing: 2px;
-  border: 4px solid #fafaf9;
+  letter-spacing: -1px;
   border-radius: 16px;
 
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 24px;
 }
@@ -90,7 +106,7 @@ h1 {
 @media (max-width: 1200px) {
   .fact {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 12px;
   }
 }
@@ -98,11 +114,40 @@ h1 {
 .tag {
   text-transform: uppercase;
   font-size: 14px;
-  font-family: "Kalam", cursive;
+  font-family: 'Coiny', sans-serif;
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 100px;
+}
+
+.vote-buttons {
+  margin-left: auto;
+  flex-shrink: 0;
+
+  display: flex;
+  gap: 8px;
+}
+
+.vote-buttons button {
+  border: none;
+  background-color: #78716c;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vote-buttons button:hover {
+  background-color: #292524;
+}
+
+.vote-buttons button:disabled {
+  background-color: #44403c;
 }
 
 ul {
@@ -113,48 +158,28 @@ ul {
 .source:visited {
   color: #a8a29e;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 12px;
   transition: 0.3s;
 }
 
 .source:hover,
 .source:active {
-  color: blue;
-}
-
-.message {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 600;
-  margin-top: 24px;
-  color: #57534e;
-}
-
-/* CATEGORY BUTTON */
-
-.category-list {
-  display: inline-block;
+  color: #3b82f6;
 }
 
 .btn {
-  border: none;
+  border: 2px solid transparent;
+  font-family: 'Coiny', sans-serif;
   line-height: 1;
   text-transform: uppercase;
-  font-size: 16px;
-  padding: 16px 0px 13px;
-  background-image: linear-gradient(135deg,
-      #3b82f6,
-      #16a34a,
-      #eab308,
-      #f97316,
-      #ef4444);
-  color: inherit;
-  transition: 0.3s;
+  font-size: 17px;
+  padding: 16px 0 13px;
+  background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
+  color: #fafaf9;
+  border-radius: 80px;
+  border-color: #292524;
   cursor: pointer;
-}
-
-.btn:hover {
-  transform: scale(110%) rotate(-2deg);
+  transition: 0.3s;
 }
 
 .btn-large {
@@ -165,29 +190,37 @@ ul {
 .btn-all-categories {
   margin-bottom: 16px;
   width: 100%;
+  color: #fafaf9;
 }
 
 .btn-category {
   width: 100%;
   background-image: none;
+  color: #fafaf9;
 }
 
-/* FACT FORM */
-
-.category {
-  margin-bottom: 16px;
+/* FORM */
+.fact-form {
+  background-color: #44403c;
+  color: #fafaf9;
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
 }
 
 .fact-form input,
 .fact-form select {
-  width: 250px;
+  width: 220px;
   background-color: #78716c;
   border: none;
   border-radius: 100px;
   padding: 16px;
-  font-size: 16px;
+  font-size: 18px;
   color: inherit;
-  font-family: "Kalam", sans-serif;
+  font-family: inherit;
 }
 
 .fact-form input::placeholder {
@@ -200,14 +233,11 @@ ul {
 
 .fact-form span {
   font-weight: 600;
-  font-size: 16;
+  font-size: 18px;
   margin-right: 18px;
 }
 
 @media (max-width: 1000px) {
-  body {
-    padding: 32px 48px;
-  }
 
   .fact-form {
     flex-direction: column;
